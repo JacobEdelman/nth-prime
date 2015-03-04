@@ -1,18 +1,18 @@
 import math
 import bisect
-import profile
+import sys
 
 memoized_pi = {}
 memoized_phi = {}
 prev = [2]
 top = 2
 def prime(n):
-   
+
     log_n = math.log(n)
     loglog_n = math.log(log_n)
     if n> 7*10**5:
-        min_p = n*int(log_n + loglog_n -1) -1 # cause <# cause <
-        max_p = n*int(log_n + loglog_n + math.log(math.log(n-2))/log_n) # or loglog_n-2
+        min_p = n*int(log_n + loglog_n -1 ) -1 # cause <# cause <
+        max_p = n*int(log_n + loglog_n + (math.log(math.log(n))-2)/log_n) # or loglog_n-2
     else:
         min_p = n*int(log_n) -1 # cause <# cause <
         max_p = n*int(log_n + loglog_n)
@@ -133,6 +133,5 @@ def test(n):
     prev = [2,3]
     a = pi(n)
     return times
-
-#print prime(2**24)
-
+if __name__ == '__main__':
+    print prime(long(sys.argv[1]))
